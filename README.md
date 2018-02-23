@@ -26,5 +26,5 @@ $ docker volume create notebooks
 ### Jupyter を起動
 ``` console
 $ docker run --rm -it -p 8888:8888 -v notebooks:/notebooks hoto17296/japanese-nlp \
-    jupyter notebook --ip=0.0.0.0 --allow-root --NotebookApp.token='' --notebook-dir=/notebooks
+    jupyter notebook --notebook-dir=/notebooks
 ```

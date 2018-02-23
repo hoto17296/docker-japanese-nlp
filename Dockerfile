@@ -2,6 +2,14 @@ FROM continuumio/anaconda3
 
 RUN apt update && apt install -y --no-install-recommends build-essential sudo
 
+# Create Jupyter Notebook config file
+RUN mkdir -p /root/.jupyter \
+  && echo "c.NotebookApp.allow_root = True" >> /root/.jupyter/jupyter_notebook_config.py \
+  && echo "c.NotebookApp.ip = '*'" >> /root/.jupyter/jupyter_notebook_config.py \
+  && echo "c.NotebookApp.token = ''" >> /root/.jupyter/jupyter_notebook_config.py
+
+EXPOSE 8888
+
 # Install gensim
 RUN conda install -y gensim
 
